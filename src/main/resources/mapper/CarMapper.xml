@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jkxy.car.api.dao.CarDao">
+
+    <select id="searchCarByBrand" resultType="com.jkxy.car.api.pojo.Car">
+        select * from carMessage where carName=#{carName,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="purchaseCar" parameterType="com.jkxy.car.api.pojo.Car">
+        delete from carMessage
+        where
+        carName=#{carName,jdbcType=VARCHAR}
+        and carSeries=#{carSeries,jdbcType=VARCHAR}
+        and id = #{id,jdbcType=DECIMAL}
+    </delete>
+</mapper>
